@@ -139,4 +139,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_velocityBoost: 10
+  m_sprite: {fileID: 6459279639867698211}
   m_playerData: {fileID: 11400000, guid: cb3052d693ab5684599cd694906b1d0e, type: 2}
