@@ -21,6 +21,6 @@ public class PlayerDataScript : ScriptableObject
         {
             return MaxVelocity;
         }
-        return Mathf.Min(current + boostAmount, MaxVelocity);
+        return Mathf.Min(Mathf.Max(0, current) + boostAmount, MaxVelocity);
     }
 }

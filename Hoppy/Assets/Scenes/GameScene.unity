@@ -152,8 +152,8 @@ MonoBehaviour:
   m_bunnyTransform: {fileID: 419689530}
   m_camera: {fileID: 519420031}
   m_minY: 0
-  m_maxY: 15
-  m_platformSpawnDistance: 2.5
+  m_maxY: 25
+  m_platformSpawnDistance: 2
 --- !u!4 &223058790
 Transform:
   m_ObjectHideFlags: 0
@@ -261,7 +261,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!212 &419689528
 SpriteRenderer:
   m_ObjectHideFlags: 0

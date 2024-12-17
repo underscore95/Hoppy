@@ -44,7 +44,6 @@ public class BasicPlatform : MonoBehaviour
     // Boost player when they fall and hit the platform
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (m_isDestroying) return;
         if (!collision.gameObject.CompareTag("Player")) return;
 
         Rigidbody2D playerRigidbody = collision.gameObject.GetComponent<Rigidbody2D>();
