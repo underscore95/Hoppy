@@ -1,2 +1,13 @@
 fileFormatVersion: 2
 guid: 17d571a6fd5eb694e97eeacccdfa3d4d
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - m_playerDataScript: {fileID: 11400000, guid: cb3052d693ab5684599cd694906b1d0e, type: 2}
+  - m_soundEffectScript: {fileID: 11400000, guid: 1fe33d4dedc7a824994399ff3eb76657, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

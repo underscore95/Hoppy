@@ -1,3 +1,5 @@
+using NUnit.Framework;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class BasicPlatform : MonoBehaviour
@@ -8,10 +10,18 @@ public class BasicPlatform : MonoBehaviour
     [SerializeField] private SpriteRenderer m_sprite;
     [SerializeField] private PlayerDataScript m_playerData;
     private bool m_isDestroying = false;
+    private List<AudioSource> m_sources = new List<AudioSource>();
 
     void Start()
     {
-
+        Transform child = transform.Find("PlatformAudio");
+        Assert.IsNotNull(child);
+        foreach (Transform audioSource in child)
+        {
+            AudioSource src = audioSource.GetComponent<AudioSource>();
+            Assert.IsNotNull(src);
+            m_sources.Add(src);
+        }
     }
 
     void Update()
@@ -39,11 +49,13 @@ public class BasicPlatform : MonoBehaviour
 
         playerRigidbody.linearVelocityY = m_playerData.GetBoostedPlayerVelocity(playerRigidbody.linearVelocityY, m_velocityBoost);
         m_isDestroying = true;
+        PlaySound();
     }
 
     // Boost player when they fall and hit the platform
     void OnTriggerEnter2D(Collider2D collision)
     {
+        if (m_isDestroying) return;
         if (!collision.gameObject.CompareTag("Player")) return;
 
         Rigidbody2D playerRigidbody = collision.gameObject.GetComponent<Rigidbody2D>();
@@ -52,5 +64,14 @@ public class BasicPlatform : MonoBehaviour
 
         playerRigidbody.linearVelocityY = m_velocityBoost;
         m_isDestroying = true;
+        PlaySound();
+    }
+
+    private void PlaySound()
+    {
+        int index = Random.Range(0, m_sources.Count);
+        if (m_sources[index].isPlaying) return;
+        m_sources[index].pitch = Random.Range(1.0f, 1.2f);
+        m_sources[index].Play();
     }
 }
