@@ -3,6 +3,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "PlayerDataScript", menuName = "Scriptable Objects/PlayerDataScript")]
 public class PlayerDataScript : ScriptableObject
 {
+    public SessionDataScript SessionData;
+
     [field: SerializeField]
 
     public float StartingVelocity { get; set; }
@@ -19,8 +21,18 @@ public class PlayerDataScript : ScriptableObject
     {
         if (current > MaxVelocity)
         {
-            return MaxVelocity;
+            return current;
         }
         return Mathf.Min(Mathf.Max(0, current) + boostAmount, MaxVelocity);
+
+    }
+
+    public float Coins { get; set; }
+
+    private void OnEnable()
+    {
+        Coins = 0;
+        StartingVelocity = 20;
+        MaxVelocity = 10;
     }
 }

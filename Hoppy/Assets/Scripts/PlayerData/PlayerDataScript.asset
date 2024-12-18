@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02ec537f267d008408c9162257cd3b15, type: 3}
   m_Name: PlayerDataScript
   m_EditorClassIdentifier: 
-  <StartingVelocity>k__BackingField: 15
+  SessionData: {fileID: 0}
+  <StartingVelocity>k__BackingField: 20
   <MaxVelocity>k__BackingField: 10
