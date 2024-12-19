@@ -11,7 +11,6 @@ public class SessionDataScript : MonoBehaviour
         Assert.IsNotNull(PlayerData.SessionData);
         CoinsCollected += coins;
         PlayerData.Coins += coins;
-        print("Collected " + coins + " coins, totalling session coins to " + CoinsCollected + " and player coins to " + PlayerData.Coins);
     }
 
     void Start()

@@ -7,6 +7,9 @@ public class PlayerDataScript : ScriptableObject
 
     [field: SerializeField]
 
+    public float Bounciness { get; set; }
+
+    [field: SerializeField]
     public float StartingVelocity { get; set; }
 
     [field: SerializeField]
@@ -23,7 +26,7 @@ public class PlayerDataScript : ScriptableObject
         {
             return current;
         }
-        return Mathf.Min(Mathf.Max(0, current) + boostAmount, MaxVelocity);
+        return Mathf.Min(Mathf.Max(0, current) + boostAmount * Bounciness * Bounciness, MaxVelocity);
 
     }
 
@@ -34,5 +37,6 @@ public class PlayerDataScript : ScriptableObject
         Coins = 0;
         StartingVelocity = 20;
         MaxVelocity = 10;
+        Bounciness = 1;
     }
 }
